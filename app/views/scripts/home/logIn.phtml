@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimalista To Do List</title>
+  <title>To Do List</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet('homestyles.css'); ?>" />
+  <link rel="stylesheet" href="logInStyle.css">
 </head>
 <body>
   <div class="container">
@@ -21,10 +21,11 @@
     <!-- Form -->
     <div class="form-container">
       <form id="signup-form" method="POST">
-        <input type="text" name="name" placeholder="User name" required>
         <input type="email" name="email" placeholder="E-mail" required>
-        <button type="submit" class="btn">SEND</button>
+        <button type="submit" class="btn">LOG IN</button>
+        <a href="taskList.phtml">Sign In</a>
       </form>
+      <p class="signin-link">Or <a href="signUp.phtml">Sign Up</a></p>
     </div>
   </div>
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/stylesheets/signUpStyle.css">
+  <title>Sign Up</title>
+</head>
+<body>
+  <div class="signup-container">
+    <div class="form-box">
+      <h1>Sign Up</h1>
+      <p class="description">Create an account and start tracking your tasks today</p>
+      <?php if (!empty($error_message)): ?>
+        <div class="error-message" style="color: red;">
+          <p><?php echo $error_message; ?></p>
+        </div>
+      <?php endif; ?>
+      <form action="createUser.php" method="POST">
+        <input type="text" name="name" placeholder="User Name" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <button type="submit">Create Account</button>
+      </form>
+      <p class="signin-link">Or <a href="homePage.html">Sign In</a></p>
+    </div>
+  </div>
+</body>
+</html>
