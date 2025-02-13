@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/%3E%3Cpath d="M6 5V0H5v5H0v1h5v94h1V6h94V5H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    color: #000000; 
+    font-family: 'Lato', Arial, sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: #f4f7fc; 
+    color: #333;
+    font-family: 'Lato', Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.container2 {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow: hidden;
+}
+
+#search_bar {
+    background-color: #e6e8ea; 
+    border: 1px solid #d1d5db;
+    color: #333;
+    font-size: 0.875rem;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+}
+
+#search_bar:focus {
+    border-color: #02399f; 
+    outline: none;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    text-align:left;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #254278; 
+}
+
+th {
+    padding: 0.5rem;
+    color: #fafafa;
+    font-size: 1.125rem;
+}
+
+th, td {
+    border-radius: 40px;
+
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 20px; 
+    
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 90px; 
+}
+
+th:nth-child(4), td:nth-child(4) {
+    width: 180px; 
+}
+
+th:nth-child(5), td:nth-child(5) {
+    width: 140px; 
+}
+
+th:nth-child(6), td:nth-child(6) {
+    width: 90px; 
+    text-align: center;
+}
+
+th:nth-child(7), td:nth-child(7) {
+    width: 110px; 
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #e1f3ef; 
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e5e7eb; 
+}
+
+tbody tr:hover {
+    background-color: #b1e1e3d0; 
+    transition: background-color 0.3s ease;
+}
+
+td {
+    padding: 0.5rem;
+}
+
+
+.text-completed {
+    color: white; 
+    background-color: #10cb39; 
+}
+
+.text-process {
+    color: white; 
+    background-color: #dfdf05; 
+}
+
+.text-pending {
+    color: white; 
+    background-color: #1d82cf; 
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.icon-trash-btn, .icon-edit-btn {
+    margin: 2px 5px;
+    font-size: 1.2rem;
+}
+
+.icon-trash-btn{
+    color: rgb(223, 2, 2);
+}
+
+.icon-edit-btn{
+    color: rgb(2, 2, 2);
+
+}
+
+.icon-btn:hover {
+    opacity: 0.8;
+}
+
+.btn {
+    padding: 12px 0px;
+    background-color: #001dd8; 
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 150px; 
+}
+
+.btn:hover {
+    background-color: #0696e3; 
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.container2 .mb-6 {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 1.3rem; 
+}
+
+input[type="checkbox"] {
+    width: 18px; /* Puedes ajustar este tamaño */
+    height: 18px; /* También ajusta según sea necesario */
+    transform: scale(1); /* Escala el tamaño de la casilla */
+    cursor: pointer; /* Cambia el cursor cuando pasas sobre la casilla */
+}
