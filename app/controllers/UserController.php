@@ -26,7 +26,7 @@ class UserController extends Controller {
                 if ($user_found) {
                     session_start();
                     $_SESSION['user_name'] = $user_name;
-                    header("Location: todolist.phtml");
+                    header("Location: .phtml");
                     exit();
                 } else {
                     echo "No tienes cuenta o el correo está mal escrito. Intenta de nuevo.";
