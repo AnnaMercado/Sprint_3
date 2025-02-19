@@ -26,8 +26,10 @@ class UserController extends Controller {
                 if ($user_found) {
                     session_start();
                     $_SESSION['user_name'] = $user_name;
-                    header("Location: todolist.phtml");
+                    header("Location: http://localhost/Sprint_3/web/tasks");
                     exit();
+                
+                
                 } else {
                     echo "No tienes cuenta o el correo está mal escrito. Intenta de nuevo.";
                 }
@@ -48,7 +50,7 @@ class UserController extends Controller {
             if (empty($error_message)) {
                 $new_user = new User($name, $email);
                 $new_user->saveUserAction($file_path);
-                header("Location: userList.phtml");
+                header("Location: http://localhost/Sprint_3/web/tasks");
                 exit();
             } else {
                 echo $error_message;
