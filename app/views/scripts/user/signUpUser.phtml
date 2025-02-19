@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-[#A1C4D8] via-[#E0F7FA] to-[#A1C4D8]">
+
+  <div class="flex items-center justify-center w-full h-screen p-5">
+    <div class="bg-white w-full max-w-lg p-10 rounded-xl shadow-lg text-center space-y-8">
+      <h1 class="text-4xl font-semibold text-blue-900 mb-6 border-b-4 border-blue-700 uppercase tracking-wide">Sign Up</h1>
+      
+      <p class="text-gray-600 text-lg italic font-light mb-6">Create an account and start tracking your tasks today</p>
+
+      <?php if (!empty($error_message)): ?>
+        <div class="bg-red-100 text-red-700 border border-red-300 rounded p-4 mb-6">
+          <p><?php echo $error_message; ?></p>
+        </div>
+      <?php endif; ?>
+
+      <form action="/signup" method="POST" class="flex flex-col gap-6">
+        <input type="text" name="name" placeholder="User Name" required class="p-4 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300">
+        <input type="email" name="email" placeholder="E-mail" required class="p-4 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300">
+        
+        <button type="submit" class="p-4 bg-blue-900 text-white rounded-lg hover:bg-green-600 focus:ring-4 focus:ring-blue-500 transition duration-300">
+          Create Account
+        </button>
+      </form>
+
+      <p class="mt-6 text-sm text-gray-600">Already have an account? <a href="/login" class="text-blue-900 font-semibold hover:text-blue-800 transition duration-200">Sign In</a></p>
+    </div>
+  </div>
+</body>
+</html>

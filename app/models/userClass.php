@@ -23,7 +23,7 @@ class User {
             'email' => $this->email
         ];
     }
-    public function saveUserAccion($file_path) {
+    public function saveUserAction($file_path) {
         $users = file_exists($file_path) ? json_decode(file_get_contents($file_path), true) : [];
 
         $users[] = $this->toArray();
