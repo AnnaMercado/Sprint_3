@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-[#A1C4D8] via-[#E0F7FA] to-[#A1C4D8]">
+
+  <div class="flex justify-center items-center min-h-screen px-5">
+    <div class="bg-white w-full max-w-lg p-10 rounded-xl shadow-lg text-center space-y-8">
+
+      <div class="header-box space-y-4">
+        <h1 class="text-5xl font-semibold text-blue-900 tracking-wide mb-4 border-b-4 border-blue-700 uppercase">My To Do List</h1>
+        <h2 class="text-lg font-light text-gray-600 italic">Get things done, one task at a time.</h2>
+      </div>
+
+      <input type="checkbox" id="showForm" class="hidden">
+      <label for="showForm" class="inline-block py-3 px-8 bg-blue-900 text-white text-lg font-semibold rounded-3xl uppercase cursor-pointer transition-colors duration-300 hover:bg-teal-400">
+        Start now!
+      </label>
+
+      <div class="form-container bg-white p-6 rounded-xl shadow-lg max-w-md w-full mt-6 transition-all duration-300 hidden" id="form-container">
+        <form action="/login" method="POST" id="signup-form" class="space-y-4">
+          <input type="email" name="email" placeholder="E-mail" required class="w-full p-3 text-base border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+          <button type="submit" class="w-full py-3 bg-blue-900 text-white rounded-lg font-semibold text-lg transition-colors duration-300 hover:bg-teal-400 focus:ring-4 focus:ring-blue-500">
+            LOG IN
+          </button>
+
+        <!-- Sign In Link -->
+        <p class="text-sm mt-6 text-gray-600">
+          Already have an account? <a href="taskList.phtml" class="text-blue-900 font-semibold hover:text-blue-800 transition duration-200">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #showForm:checked ~ .form-container {
+      display: block;
+    }
+  </style>
+</body>
+</html>
