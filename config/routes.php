@@ -10,8 +10,10 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-	'/' => 'User#logInUser',
-	'/login' => 'User#logInUser',
-	'/signup' => 'User#signUpUser',
-	'/tasks'=> 'Task#index',
+	'/'             => 'User#logInUser',
+	'/login'        => 'User#logInUser',
+	'/signup'       => 'User#signUpUser',
+	'/tasks'        => 'Task#index',
+	'/tasks/create' => 'Task#create',
+	'/tasks/update' => 'Task#update',
 );
