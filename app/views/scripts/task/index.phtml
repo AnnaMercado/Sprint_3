@@ -1,121 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-r from-[#A1C4D8] via-[#E0F7FA] to-[#A1C4D8]">
 
-  <div class="flex items-start justify-center w-full h-screen p-5 pt-12"> <!-- Ajuste de alineación a la parte superior -->
-    <div class="bg-white w-full max-w-7xl p-8 rounded-xl shadow-lg space-y-8">
+    <div class="flex items-start justify-center w-full h-screen p-5 pt-12">
+        <div class="bg-white w-full max-w-7xl p-8 rounded-xl shadow-lg space-y-8">
 
-      <!-- Search bar and "New Task" button -->
-      <div class="flex items-center justify-between mb-6">
-        <input type="text" id="search_bar" placeholder="Search task..." class="p-3 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 w-1/3 shadow-md">
-        <a href="/tasks/create" class="p-3 bg-blue-900 text-white rounded-full hover:bg-green-600 focus:ring-4 focus:ring-blue-500 transition duration-300 w-20 h-20 flex justify-center items-center shadow-lg hover:scale-105">
-          <i class="fas fa-plus text-3xl"></i> <!-- Icono de + más grande y visual -->
-        </a>
-      </div>
+            <!-- Search bar and "New Task" button -->
+            <div class="flex items-center justify-between mb-6">
+                <input type="text" id="search_bar" placeholder="Search users..." class="p-3 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 w-1/3 shadow-md">
+                <a href="/tasks/create" class="p-3 bg-blue-900 text-white rounded-full hover:bg-green-600 focus:ring-4 focus:ring-blue-500 transition duration-300 w-20 h-20 flex justify-center items-center shadow-lg hover:scale-105">
+                    <i class="fas fa-plus text-3xl"></i>
+                </a>
+            </div>
 
-      <div class="overflow-x-auto mt-4">
-        <table class="min-w-full table-auto rounded-lg border-separate border-spacing-0">
-          <thead class="bg-blue-900 text-white">
-            <tr>
-              <th class="p-4 text-left"> </th>
-              <th class="p-4 text-left">User</th>
-              <th class="p-4 text-left">Task</th>
-              <th class="p-4 text-left">Email</th>
-              <th class="p-4 text-left">Started</th>
-              <th class="p-4 text-left">Status</th>
-              <th class="p-4 text-left w-24"> </th> <!-- Estrechar la última columna -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Row 1 -->
-            <tr class="hover:bg-gray-100 transition duration-200 rounded-lg shadow-md">
-              <td class="p-4">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-800" onchange="toggleComplete(this)">
-              </td>
-              <td class="p-4">Anna</td>
-              <td class="p-4">Task list project</td>
-              <td class="p-4">anna@gmail.com</td>
-              <td class="p-4">18/05/2024</td>
-              <td class="p-4">
-                <span class="text-white rounded-full py-2 px-4 bg-blue-500">Pending</span>
-              </td>
-              <td class="p-4 flex justify-center space-x-4">
-                <!-- Edit and Delete buttons -->
-                <button class="text-gray-700 p-2 rounded hover:bg-gray-200 focus:ring-2 focus:ring-blue-500">
-                  <i class="fas fa-edit"></i> <!-- Edit icon -->
-                </button>
-                <button class="text-red-500 p-2 rounded hover:bg-red-100 focus:ring-2 focus:ring-red-500">
-                  <i class="fas fa-trash-alt"></i> <!-- Delete icon -->
-                </button>
-              </td>
-            </tr>
+            <div class="overflow-x-auto mt-4">
+                <table class="min-w-full table-auto rounded-lg border-separate border-spacing-0">
+                    <thead class="bg-blue-900 text-white">
+                        <tr>
+                            <th class="p-4 text-left"></th>
+                            <th class="p-4 text-left">User</th>
+                            <th class="p-4 text-left">Task</th>
+                            <th class="p-4 text-left">Email</th>
+                            <th class="p-4 text-left">Started at</th>
+                            <th class="p-4 text-left">Status</th>
+                            <th class="p-4 text-left w-24"></th>
+                        </tr>
+                    </thead>
 
-            <!-- Row 2 -->
-            <tr class="hover:bg-gray-100 transition duration-200 rounded-lg shadow-md">
-              <td class="p-4">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-800" onchange="toggleComplete(this)">
-              </td>
-              <td class="p-4">John</td>
-              <td class="p-4">Mobile app project</td>
-              <td class="p-4">john@gmail.com</td>
-              <td class="p-4">20/05/2024</td>
-              <td class="p-4">
-                <span class="text-white rounded-full py-2 px-4 bg-green-500">Completed</span>
-              </td>
-              <td class="p-4 flex justify-center space-x-4">
-                <!-- Edit and Delete buttons -->
-                <button class="text-gray-700 p-2 rounded hover:bg-gray-200 focus:ring-2 focus:ring-blue-500">
-                  <i class="fas fa-edit"></i> <!-- Edit icon -->
-                </button>
-                <button class="text-red-500 p-2 rounded hover:bg-red-100 focus:ring-2 focus:ring-red-500">
-                  <i class="fas fa-trash-alt"></i> <!-- Delete icon -->
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                    <tbody>
+                        <?php
+                        require_once __DIR__ . '/../../../controllers/TaskController.php';
+                        $taskController = new TaskController();
+                        $tasks = $taskController->getAllTasks();
+                        ?>
+
+                        <?php if (!empty($tasks)): ?>
+                            <?php foreach ($tasks as $task): ?>
+                                <tr class="hover:bg-gray-100 transition duration-200 rounded-lg shadow-md">
+                                    <td class="p-4">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-800" onchange="toggleComplete(this)">
+                                    </td>
+                                    <td class="p-4 task-item"><?= htmlspecialchars($task['name']); ?></td>
+                                    <td class="p-4 task-item"><?= htmlspecialchars($task['task']); ?></td>
+                                    <td class="p-4 task-item"><?= htmlspecialchars($task['email']); ?></td>
+                                    <td class="p-4 task-item"><?= htmlspecialchars($task['created_at']); ?></td>
+                                    <td class="p-4 text-pending status">
+                                        <span class="text-white rounded-full py-2 px-4 bg-blue-500"><?= htmlspecialchars($task['status']); ?></span>
+                                    </td>
+                                    <td class="p-4 flex justify-center space-x-4 button-column">
+                                        
+                                          <!-- edit icon -->
+                                          <a href="/tasks/update/<?= htmlspecialchars($task['id']); ?>" class="text-gray-700 p-2 rounded hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 icon-edit-btn btn btn-primary">
+                                             
+                                          <i class="fas fa-edit"></i>
+                                          </a>
+                                       
+                                        <!-- delete icon -->
+                                        <button class="text-red-500 p-2 rounded hover:bg-red-100 focus:ring-2 focus:ring-red-500 icon-trash-btn btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="7" class="p-4 text-center">No tasks available.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function toggleComplete(checkbox) {
-      const row = checkbox.closest('tr');
-      const statusCell = row.querySelector('td:nth-child(6) span');
-      const taskItems = row.querySelectorAll('td');
+    <script>
+        function toggleComplete(checkbox) {
+            const row = checkbox.closest('tr');
+            const statusCell = row.querySelector('td:nth-child(6) span');
+            const taskItems = row.querySelectorAll('td');
 
-      // Marcar como completado o pendiente
-      if (checkbox.checked) {
-        statusCell.textContent = 'Completed';
-        statusCell.classList.remove('bg-blue-500', 'text-white');
-        statusCell.classList.add('bg-green-500', 'text-white');
-        
-        // Tachado de todas las celdas excepto estado y botones
-        taskItems.forEach((cell, index) => {
-          if (index !== 5 && index !== 6) {
-            cell.style.textDecoration = "line-through"; // Tachar el texto
-          }
-        });
-      } else {
-        statusCell.textContent = 'Pending';
-        statusCell.classList.remove('bg-green-500', 'text-white');
-        statusCell.classList.add('bg-blue-500', 'text-white');
-        
-        // Quitar el tachado cuando no esté marcado
-        taskItems.forEach((cell, index) => {
-          if (index !== 5 && index !== 6) {
-            cell.style.textDecoration = "none"; // Quitar el tachado
-          }
-        });
-      }
-    }
-  </script>
+            if (checkbox.checked) {
+                statusCell.textContent = 'Completed';
+                statusCell.classList.remove('bg-blue-500', 'text-white');
+                statusCell.classList.add('bg-green-500', 'text-white');
+                taskItems.forEach((cell, index) => {
+                    if (index !== 5 && index !== 6) {
+                        cell.style.textDecoration = "line-through";
+                    }
+                });
+            } else {
+                statusCell.textContent = 'Pending';
+                statusCell.classList.remove('bg-green-500', 'text-white');
+                statusCell.classList.add('bg-blue-500', 'text-white');
+                taskItems.forEach((cell, index) => {
+                    if (index !== 5 && index !== 6) {
+                        cell.style.textDecoration = "none";
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
