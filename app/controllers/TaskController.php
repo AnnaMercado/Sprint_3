@@ -34,7 +34,7 @@ class TaskController extends Controller {
                     'created_at' => $created_at,
                     'status'     => $status
                 ]);
-                header("Location:  /tasks"); // header("Location:  /tasks/taskList.phtml");
+                header("Location:  tasks"); // header("Location:  /tasks/taskList.phtml");
                 exit();
             } else {
                 echo $error_message;
@@ -72,13 +72,47 @@ class TaskController extends Controller {
         file_put_contents($this->jsonFile, json_encode(['tasks' => $tasks], JSON_PRETTY_PRINT));
 
         // Redirect to the main task list page
-        header("Location: /tasks");
+        header("Location: /index");
         exit();
     }
 
     // Pass the task to the view for editing
     include __DIR__ . '/../views/scripts/task/update.phtml';
 }
+
+
+
+    // Handles the task deletion logic
+    public function deleteAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Get the task ID from the POST request
+            $id = $_POST['id'] ?? null;
+    
+            if ($id) {
+                // Fetch all tasks, filter out the one to be deleted, and save the updated list
+                $tasks = $this->getAllTasks();
+                $tasks = array_filter($tasks, function($task) use ($id) {
+                    return $task['id'] !== $id;  // Remove task with matching ID
+                });
+    
+                $this->saveTasks(array_values($tasks));
+    
+                header('Location: tasks');  // Ensure this URL matches your route
+                exit();
+            } else {
+                // If no task ID provided, show an error
+                echo json_encode(['status' => 'error', 'message' => 'No task ID provided']);
+            }
+        } else {
+            // If the request method is not POST, return an error
+            echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
+        }
+    
+        exit();
+    }
+    
+
 
 
    //helper functions for the crud
