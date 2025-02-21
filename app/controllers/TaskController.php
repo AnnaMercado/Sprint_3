@@ -8,8 +8,16 @@ class TaskController extends Controller {
    //c-read-ud
     public function indexAction() {
         $tasks = $this->getAllTasks();
-     
-    }
+
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $searchQuery = filter_var(trim($_GET['search']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            
+            // Filter tasks by name or email
+            $tasks = array_filter($tasks, function($task) use ($searchQuery) {
+                return stripos($task['name'], $searchQuery) !== false || stripos($task['email'], $searchQuery) !== false;
+            });
+        }
+    }    
 
     //create-rud
     public function createAction() {
@@ -38,36 +46,59 @@ class TaskController extends Controller {
         }
     }
 
+
     //cr---update---d
-   public function updateAction($id) {
-    $data = json_decode(file_get_contents($this->jsonFile), true);
-    $tasks = $data['tasks'] ?? [];
-
-    $task = null;
-    foreach ($tasks as &$t) {
-        if ($t['id'] === $id) {
-            $task = &$t;     
-            break;
+    public function updateAction() {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            die("Error: Direct access to update page is not allowed.");
         }
+    
+        if (!isset($_POST['id']) || empty($_POST['id'])) {
+            die("Error: No task identifier provided.");
+        }
+    
+        $id = $_POST['id'];
+        
+        $tasks = $this->getAllTasks();
+        $taskToUpdate = null;
+    
+        // Find the task by ID
+        foreach ($tasks as $task) {
+            if ($task['id'] === $id) {
+                $taskToUpdate = $task;
+                break;
+            }
+        }
+    
+        if (!$taskToUpdate) {
+            die("Error: Task not found.");
+        }
+    
+        // If form is submitted, update the task
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
+            $taskToUpdate['name'] = $_POST['name'] ?? $taskToUpdate['name'];
+            $taskToUpdate['task'] = $_POST['task'] ?? $taskToUpdate['task'];
+            $taskToUpdate['created_at'] = $_POST['created_at'] ?? $taskToUpdate['created_at'];
+            $taskToUpdate['status'] = $_POST['status'] ?? $taskToUpdate['status'];
+    
+            // Save changes to tasks array
+            foreach ($tasks as &$task) {
+                if ($task['id'] === $taskToUpdate['id']) {
+                    $task = $taskToUpdate;
+                    break;
+                }
+            }
+    
+            $this->saveTasks($tasks);
+    
+            // Redirect right after update
+            header("Location: /tasks");
+            exit();
+        }
+    
+        include __DIR__ . '/../views/scripts/task/update.phtml';
     }
-    if (!$task) {
-        die("Error: Task not found.");
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $task['name'] = filter_var(trim($_POST['name']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $task['task'] = filter_var(trim($_POST['task']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $task['status'] = filter_var(trim($_POST['status']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-        file_put_contents($this->jsonFile, json_encode(['tasks' => $tasks], JSON_PRETTY_PRINT));
-
-        header("Location: /index");
-        exit();
-    }
-    include __DIR__ . '/../views/scripts/task/update.phtml';
-}
-
-
+    
     //cru---delete
     public function deleteAction()
     {
@@ -94,8 +125,6 @@ class TaskController extends Controller {
         exit();
     }
     
-
-
 
    //helper functions for the crud
     public function getAllTasks() {
@@ -127,7 +156,7 @@ class TaskController extends Controller {
         $this->saveTasks($tasks);
     }
 
- 
+     //validating zone
     public function validateValues($email) {
         if (empty($email)) {
             return "Por favor, complete todos los campos.";
