@@ -14,7 +14,7 @@ $routes = array(
 	'/login'        => 'User#logInUser',
 	'/signup'       => 'User#signUpUser',
 	'/tasks'        => 'Task#index',
-	'/create' => 'Task#create',
-	'/tasks/update' => 'Task#update',
-	'/delete'  => 'Task#delete',
+	'/create'       => 'Task#create',
+	'/update'       => 'Task#update',
+	'/delete'       => 'Task#delete',
 );
