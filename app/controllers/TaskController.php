@@ -8,8 +8,16 @@ class TaskController extends Controller {
    //c-read-ud
     public function indexAction() {
         $tasks = $this->getAllTasks();
-     
-    }
+
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $searchQuery = filter_var(trim($_GET['search']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            
+            // Filter tasks by name or email
+            $tasks = array_filter($tasks, function($task) use ($searchQuery) {
+                return stripos($task['name'], $searchQuery) !== false || stripos($task['email'], $searchQuery) !== false;
+            });
+        }
+    }    
 
     //create-rud
     public function createAction() {
