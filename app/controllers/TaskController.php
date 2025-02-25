@@ -92,7 +92,7 @@ class TaskController extends Controller {
             $this->saveTasks($tasks);
     
             // Redirect right after update
-            header("Location: /tasks");
+            header("Location: tasks");
             exit();
         }
     
