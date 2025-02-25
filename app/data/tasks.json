@@ -1,22 +1,6 @@
 {
     "tasks": [
         {
-            "id": "67b63b0b2f7bb",
-            "name": "manamana restaurant",
-            "task": "double time, issue waiting",
-            "created_at": "2025-02-19T21:11",
-            "status": "in_progress",
-            "email": "amanaa@gmail.com"
-        },
-        {
-            "id": "67b660a6627ec",
-            "name": "alfred",
-            "task": "empty the trashcan",
-            "created_at": "2025-02-19T23:52",
-            "status": "in_progress",
-            "email": "alf@fred.com"
-        },
-        {
             "id": "67b6f0b6cdb15",
             "name": "anna",
             "task": "complete the sprint_3",
@@ -47,6 +31,14 @@
             "created_at": "2025-02-21 10:59:18",
             "status": "pending",
             "email": "pree@pre.com"
+        },
+        {
+            "id": "67bda45df1be5",
+            "name": "a",
+            "task": "a",
+            "created_at": "2025-02-25 12:07:09",
+            "status": "pending",
+            "email": "a@gmail.com"
         }
     ]
 }
