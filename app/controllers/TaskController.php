@@ -17,6 +17,11 @@ class TaskController extends Controller {
                 return stripos($task['name'], $searchQuery) !== false || stripos($task['email'], $searchQuery) !== false;
             });
         }
+
+        // Capturing the view output manually
+    require_once ROOT_PATH . '/app/views/scripts/task/index.phtml';
+
+    $this->view->disableView(); 
     }    
 
     //create-rud
@@ -159,18 +164,18 @@ class TaskController extends Controller {
      //validating zone
     public function validateValues($email) {
         if (empty($email)) {
-            return "Por favor, complete todos los campos.";
+            return "Please fill in all the fields.";
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return "Por favor, ingrese un correo electrónico válido.";
+            return "Please enter a valid email address.";
         }
 
         //red zone
         $tasks = $this->getAllTasks();
         foreach ($tasks as $task) {
             if ($task['email'] == $email) {
-                return "Este correo ya está registrado. Por favor, usa otro.";
+                return "This email address is already registered. Please use another one.";
             }
         }
         return "";
